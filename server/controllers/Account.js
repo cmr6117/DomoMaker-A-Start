@@ -14,11 +14,11 @@ const logout = (req, res) => {
     res.render('/');
 };
 
-const logout = (req, res) => {
+const login = (req, res) => {
     
 };
 
-const logout = (req, res) => {
+const signup = (req, res) => {
     
 };
 
