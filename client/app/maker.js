@@ -7,8 +7,8 @@ const handleDomo = (e) => {
         handleError("RAWR! All fields are required");
         return false;
     }
-    
-    sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize(), function(){
+  
+    sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize(), () => {
         loadDomosFromServer();
     });
     
@@ -28,7 +28,7 @@ const DomoForm = (props) => {
             <input id="domoName" type="text" name="name" placeholder="Domo Name"/>
             <label htmlFor="age">Age: </label>
             <input id="domoAge" type="text" name="age" placeholder="Domo Age"/>
-            <input type="hidden" name="_csrf" value={props./csrf} />
+            <input type="hidden" name="_csrf" value={props.csrf} />
             <input className="makeDomoSubmit" type="submit" value="Make Domo" />
         </form>
     );
@@ -62,19 +62,20 @@ const DomoList = function(props) {
 
 const loadDomosFromServer = () => {
     sendAjax('GET', '/getDomos', null, (data) => {
+      console.dir('loading');
         ReactDOM.render(
-            <DomoList domos={data.domos} />, document.querySelector("#domos)
+            <DomoList domos={data.domos} />, document.querySelector("#domos")
         );
     });
 };
 
 const setup = function(csrf) {
     ReactDOM.render(
-        <DomoForm csrf={csrf} />, document.querySelector('#makeDomo)
+        <DomoForm csrf={csrf} />, document.querySelector("#makeDomo")
     );
 
     ReactDOM.render(
-        <DomoForm domos={[]} />, document.querySelector('#domos)
+        <DomoForm domos={[]} />, document.querySelector("#domos")
     );
 
     loadDomosFromServer();

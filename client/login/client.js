@@ -18,7 +18,7 @@ const handleLogin = (e) => {
 const handleSignup = (e) => {
     e.preventDefault();
     
-    $("$domoMessage").animate({width:'hide'},350);
+    $("#domoMessage").animate({width:'hide'},350);
     
     if($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == ''){
         handleError("RAWR! All fields are required");
@@ -91,7 +91,7 @@ const createSignupWindow = (csrf) => {
 };
 
 const setup = (csrf) => {
-    const loginButton = document.querySelector("#logiinButton");
+    const loginButton = document.querySelector("#loginButton");
     const signupButton = document.querySelector("#signupButton");
     
     signupButton.addEventListener("click", (e) => {

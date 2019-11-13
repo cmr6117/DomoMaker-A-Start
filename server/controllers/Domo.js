@@ -26,6 +26,10 @@ const makeDomo = (req, res) => {
     const newDomo = new Domo.DomoModel(domoData);
     
     const domoPromise = newDomo.save();
+  
+    domoPromise.then(() => {
+      res.json({newDomo});
+    });
     
     domoPromise.catch((err) => {
         console.log(err);
