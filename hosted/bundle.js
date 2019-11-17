@@ -76,6 +76,13 @@ var DomoList = function DomoList(props) {
                 " Age: ",
                 domo.age,
                 " "
+            ),
+            React.createElement(
+                "h3",
+                { className: "domoLevel" },
+                " Level: ",
+                domo.level,
+                " "
             )
         );
     });
