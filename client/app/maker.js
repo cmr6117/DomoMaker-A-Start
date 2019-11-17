@@ -3,7 +3,7 @@ const handleDomo = (e) => {
     
     $("#domoMessage").animate({width:'hide'},350);
     
-    if($("#domoName").val() == '' || $("#domoAge").val() == '' || $("#domoLevel").val() == '' || $("#domoColor").val() == ''){
+    if($("#domoName").val() == '' || $("#domoAge").val() == '' || $("#domoLevel").val() == ''){
         handleError("RAWR! All fields are required");
         return false;
     }
@@ -30,8 +30,6 @@ const DomoForm = (props) => {
             <input id="domoAge" type="text" name="age" placeholder="Domo Age"/>
             <label htmlFor="level">Level: </label>
             <input id="domoLevel" type="text" name="level" placeholder="Domo Level"/>
-            <label htmlFor="color">Color: </label>
-            <input id="domoColor" type="text" name="color" placeholder="Domo Level"/>
             <input type="hidden" name="_csrf" value={props.csrf} />
             <input className="makeDomoSubmit" type="submit" value="Make Domo" />
         </form>
@@ -39,7 +37,6 @@ const DomoForm = (props) => {
 };
 
 const DomoList = function(props) {
-    let divColor;
     if(props.domos.length === 0) {
         return (
             <div className="domoList">
@@ -49,7 +46,6 @@ const DomoList = function(props) {
     }
     
     const domoNodes = props.domos.map(function(domo) {
-        divColor = domo.color;
         return (
             <div key={domo._id} className="domo">
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
@@ -61,7 +57,7 @@ const DomoList = function(props) {
     });
     
     return (
-        <div className="domoList" style="background-color:{divColor};">
+        <div className="domoList">
             {domoNodes}
         </div>
     );
