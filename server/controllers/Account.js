@@ -11,6 +11,10 @@ const logout = (req, res) => {
     res.redirect('/');
 };
 
+const about = (req, res) => {
+    res.render('about', { csrfToken: req.csrfToken() });
+};
+
 const login = (request, response) => {
     const req = request;
     const res = response;
@@ -91,6 +95,7 @@ const getToken = (request, response) => {
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
+module.exports.about = about;
 module.exports.signup = signup;
 module.exports.getToken = getToken;
 
